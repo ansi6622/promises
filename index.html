@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script charset="utf-8" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <script type="text/javascript">
+    $(function(){
+      $.getJSON('https://data.colorado.gov/resource/4ykn-tg5h.json').then(function(response){
+        response = response.slice(0,10);
+        var responseArr = [];
+        response.forEach(function(res){
+          var newResponse = {};
+          newResponse['firstName'] = res.agentfirstname;
+          newResponse['lastName'] = res.agentlastname;
+          responseArr.push(newResponse);
+      });
+        console.log(responseArr);
+    });
+  })
+
+    </script>
+  </div>
+
+</body>
+</html>
